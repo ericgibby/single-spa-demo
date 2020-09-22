@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Root Config</title>
+  <base href="/single-spa-demo" />
 
   <!--
     Remove this if you only support browsers that support async/await.
@@ -86,7 +87,7 @@
   <% } %>
 
   <template id="single-spa-layout">
-    <single-spa-router>
+    <single-spa-router base="/single-spa-demo">
       <!-- <nav>
         <application name="@<%- orgName %>/navbar"></application>
       </nav> -->

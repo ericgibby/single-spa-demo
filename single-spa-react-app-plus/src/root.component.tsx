@@ -15,7 +15,7 @@ export default function Root({ name }: RootProps) {
 			<header>
 				<h1>{name}</h1>
 			</header>
-			<BrowserRouter basename="plus">
+			<BrowserRouter basename="single-spa-demo/plus">
 				<Switch>
 					<Route path="/three">
 						<Three name={name} />

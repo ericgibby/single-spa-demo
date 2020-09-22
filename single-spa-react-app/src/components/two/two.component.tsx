@@ -23,10 +23,10 @@ export default function Two({ name }: TwoProps) {
 					<Link to="/one">Go to One</Link>
 				</li>
 				<li>
-					<SingleSpaLink to="/plus/three">Go to Three</SingleSpaLink>
+					<SingleSpaLink to="/single-spa-demo/plus/three">Go to Three</SingleSpaLink>
 				</li>
 				<li>
-					<SingleSpaLink to="/plus/four">Go to Four</SingleSpaLink>
+					<SingleSpaLink to="/single-spa-demo/plus/four">Go to Four</SingleSpaLink>
 				</li>
 			</ul>
 		</>

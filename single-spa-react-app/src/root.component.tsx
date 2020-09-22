@@ -17,7 +17,7 @@ export default function Root({ name }: RootProps) {
 				<h1>{name}</h1>
 			</header>
 			<Suspense fallback={<div>Loading...</div>}>
-				<BrowserRouter>
+				<BrowserRouter basename="single-spa-demo">
 					<Switch>
 						<Route path="/one">
 							<One name={name} />

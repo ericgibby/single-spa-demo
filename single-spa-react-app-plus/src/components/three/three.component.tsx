@@ -20,10 +20,10 @@ export default function Three({ name }: ThreeProps) {
 			</p>
 			<ul>
 				<li>
-					<SingleSpaLink to="/one">Go to One</SingleSpaLink>
+					<SingleSpaLink to="/single-spa-demo/one">Go to One</SingleSpaLink>
 				</li>
 				<li>
-					<SingleSpaLink to="/two">Go to Two</SingleSpaLink>
+					<SingleSpaLink to="/single-spa-demo/two">Go to Two</SingleSpaLink>
 				</li>
 				<li>
 					<Link to="/four">Go to Four</Link>
