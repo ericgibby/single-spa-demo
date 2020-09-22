@@ -18,6 +18,10 @@
 		"start:root": "yarn workspace single-spa-root start",
 		"start:react-app": "yarn workspace single-spa-react-app start",
 		"start:react-app-plus": "yarn workspace single-spa-react-app-plus start",
-		"start": "concurrently yarn:start:root yarn:start:react-app yarn:start:react-app-plus"
+		"start": "concurrently yarn:start:root yarn:start:react-app yarn:start:react-app-plus",
+		"build:root": "yarn workspace single-spa-root build",
+		"build:react-app": "yarn workspace single-spa-react-app build",
+		"build:react-app-plus": "yarn workspace single-spa-react-app-plus build",
+		"build": "concurrently yarn:build:root yarn:build:react-app yarn:build:react-app-plus"
 	}
 }
