@@ -1,4 +1,0 @@
-{
-  "extends": "ts-config-single-spa",
-  "include": ["src/**/*"]
-}
