@@ -1,6 +1,7 @@
 {
   "name": "single-spa-angular-app",
   "version": "0.1.0",
+  "license": "MIT",
   "workspaces": {
     "nohoist": ["@types/jasmine", "@types/jasminewd2"]
   },

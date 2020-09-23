@@ -23,9 +23,12 @@ From the root directory, run:
 yarn start
 ```
 
-This will start up 3 separate applications running _webpack-dev-server_ on different ports:
+This will start up 4 separate applications running _webpack-dev-server_ on different ports:
 -	**single-spa-root**: The main entry point for the application.
--	**single-spa-react-app**: A simple react application that is boostrapped inside **single-spa-root** at the default path (`/`).
+-	**single-spa-react-app**: A simple react application that is bootstrapped inside **single-spa-root** at the default path (`/`).
 -	**single-spa-react-app-plus**: Another simple react application that is bootstrapped inside **single-spa-root** at the `/plus` path.
+-	**single-spa-angular-app**: A simple Angular application that is bootstrapped inside **single-spa-root** at the `/ng` path.
+
+Additionally, it will start up an instance of _live-server_ that serves the UMD version of the **shared-components** library.
 
 Open your browser and navigate to [http://localhost:9000](http://localhost:9000) to view the application.

@@ -1,6 +1,8 @@
 {
 	"name": "single-spa-react-app-plus",
 	"version": "0.1.0",
+	"license": "MIT",
+	"private": true,
 	"scripts": {
 		"start": "webpack-dev-server --mode=development --port 8501 --env.isLocal=true",
 		"build": "webpack --mode=production",
