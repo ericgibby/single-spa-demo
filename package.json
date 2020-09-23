@@ -9,7 +9,8 @@
 	"workspaces": [
 		"single-spa-react-app",
 		"single-spa-react-app-plus",
-		"single-spa-root"
+		"single-spa-root",
+		"shared-components"
 	],
 	"devDependencies": {
 		"concurrently": "^5.3.0"
@@ -18,10 +19,13 @@
 		"start:root": "yarn workspace single-spa-root start",
 		"start:react-app": "yarn workspace single-spa-react-app start",
 		"start:react-app-plus": "yarn workspace single-spa-react-app-plus start",
-		"start": "concurrently yarn:start:root yarn:start:react-app yarn:start:react-app-plus",
+		"start:shared-components": "yarn workspace shared-components start",
+		"start": "concurrently yarn:start:react-app yarn:start:react-app-plus yarn:start:root yarn:start:shared-components",
+		"prestart": "yarn build:shared-components",
 		"build:root": "yarn workspace single-spa-root build",
 		"build:react-app": "yarn workspace single-spa-react-app build",
 		"build:react-app-plus": "yarn workspace single-spa-react-app-plus build",
-		"build": "concurrently yarn:build:root yarn:build:react-app yarn:build:react-app-plus"
+		"build:shared-components": "yarn workspace shared-components build",
+		"build": "yarn build:shared-components && concurrently yarn:build:react-app yarn:build:react-app-plus yarn:build:root"
 	}
 }
