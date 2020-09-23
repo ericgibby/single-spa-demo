@@ -25,6 +25,7 @@ export default function Root({ name }: RootProps) {
 						<Route path="/two">
 							<Two name={name} />
 						</Route>
+						<Redirect path="/" exact to="/one" />
 					</Switch>
 				</BrowserRouter>
 			</Suspense>
