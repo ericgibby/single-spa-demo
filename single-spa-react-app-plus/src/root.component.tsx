@@ -1,7 +1,7 @@
 import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-import ErrorFallback from './components/error-fallback/error-fallback.component';
+import { ErrorFallback } from 'shared-components';
 import Four from './components/four/four.component';
 import Three from './components/three/three.component';
 

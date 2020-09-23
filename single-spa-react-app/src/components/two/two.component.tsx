@@ -1,6 +1,6 @@
+import { SingleSpaLink } from 'shared-components';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SingleSpaLink from '../single-spa-link/single-spa-link.component';
 
 type TwoProps = {
 	name?: string;
