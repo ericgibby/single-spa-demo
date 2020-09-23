@@ -22,10 +22,16 @@ export default function One({ name }: OneProps) {
 					<Link to="/two">Go to Two</Link>
 				</li>
 				<li>
-					<SingleSpaLink to="/single-spa-demo/plus/three">Go to Three</SingleSpaLink>
+					<SingleSpaLink to="/plus/three">Go to Three</SingleSpaLink>
 				</li>
 				<li>
-					<SingleSpaLink to="/single-spa-demo/plus/four">Go to Four</SingleSpaLink>
+					<SingleSpaLink to="/plus/four">Go to Four</SingleSpaLink>
+				</li>
+				<li>
+					<SingleSpaLink to="/ng/five">Go to Five</SingleSpaLink>
+				</li>
+				<li>
+					<SingleSpaLink to="/ng/six">Go to Six</SingleSpaLink>
 				</li>
 			</ul>
 		</>

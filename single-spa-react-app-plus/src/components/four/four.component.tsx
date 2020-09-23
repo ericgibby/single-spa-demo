@@ -19,13 +19,19 @@ export default function Four({ name }: FourProps) {
 			</p>
 			<ul>
 				<li>
-					<SingleSpaLink to="/single-spa-demo/one">Go to One</SingleSpaLink>
+					<SingleSpaLink to="/one">Go to One</SingleSpaLink>
 				</li>
 				<li>
-					<SingleSpaLink to="/single-spa-demo/two">Go to Two</SingleSpaLink>
+					<SingleSpaLink to="/two">Go to Two</SingleSpaLink>
 				</li>
 				<li>
-					<Link to="/three">Go to Three</Link>
+					<Link to="/plus/three">Go to Three</Link>
+				</li>
+				<li>
+					<SingleSpaLink to="/ng/five">Go to Five</SingleSpaLink>
+				</li>
+				<li>
+					<SingleSpaLink to="/ng/six">Go to Six</SingleSpaLink>
 				</li>
 			</ul>
 		</>

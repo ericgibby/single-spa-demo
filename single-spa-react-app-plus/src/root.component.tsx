@@ -15,15 +15,14 @@ export default function Root({ name }: RootProps) {
 			<header>
 				<h1>{name}</h1>
 			</header>
-			<BrowserRouter basename="single-spa-demo/plus">
+			<BrowserRouter basename="/single-spa-demo">
 				<Switch>
-					<Route path="/three">
+					<Route path="/plus/three">
 						<Three name={name} />
 					</Route>
-					<Route path="/four">
+					<Route path="/plus/four">
 						<Four name={name} />
 					</Route>
-					<Redirect path="*" to="/three" />
 				</Switch>
 			</BrowserRouter>
 		</ErrorBoundary>
