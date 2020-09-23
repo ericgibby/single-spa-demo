@@ -1,2 +1,0 @@
-(window["webpackJsonp_single-spa-react-app"]=window["webpackJsonp_single-spa-react-app"]||[]).push([[3],{28:function(e,n,r){"use strict";r.r(n),r.d(n,"default",(function(){return p}));var a=r(0),t=r.n(a);function p(e){var n=e.error;return t.a.createElement("div",null,t.a.createElement("p",null,"Something when wrong:"),t.a.createElement("pre",{style:{color:"red"}},n.message))}}}]);
-//# sourceMappingURL=3.ericgibby-single-spa-react-app.js.map
