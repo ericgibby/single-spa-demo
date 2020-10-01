@@ -14,6 +14,10 @@ const routes: Routes = [
 		component: SixComponent
 	},
 	{
+		path: 'ng',
+		redirectTo: 'ng/five'
+	},
+	{
 		path: '**',
 		component: EmptyRouteComponent
 	}
