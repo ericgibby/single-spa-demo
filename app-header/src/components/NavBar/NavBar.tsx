@@ -21,9 +21,9 @@ export default function NavBar({ name }: NavBarProps) {
 			setActiveNavItem(item);
 		};
 		routingEventHandler();
-		window.addEventListener('single-spa:routing-event', routingEventHandler);
+		window.addEventListener('popstate', routingEventHandler);
 		return () => {
-			window.removeEventListener('single-spa:routing-event', routingEventHandler);
+			window.removeEventListener('popstate', routingEventHandler);
 		};
 	}, [base]);
 
