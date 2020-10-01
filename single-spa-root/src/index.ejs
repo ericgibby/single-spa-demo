@@ -6,6 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<title>Single SPA Demo</title>
 		<base href="/single-spa-demo" />
+		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
 		<!--
     Remove this if you only support browsers that support async/await.
@@ -53,10 +54,11 @@
 		<script type="systemjs-importmap">
 			{
 				"imports": {
-					"@ericgibby/root-config": "//localhost:9000/ericgibby-root-config.js",
-					"@ericgibby/single-spa-angular-app": "//localhost:8503/main.js",
-					"@ericgibby/single-spa-react-app": "//localhost:8500/ericgibby-single-spa-react-app.js",
-					"@ericgibby/single-spa-react-app-plus": "//localhost:8501/ericgibby-single-spa-react-app-plus.js",
+					"@<%- orgName %>/root-config": "//localhost:9000/ericgibby-root-config.js",
+					"@<%- orgName %>/app-header": "//localhost:8504/ericgibby-app-header.js",
+					"@<%- orgName %>/single-spa-angular-app": "//localhost:8503/main.js",
+					"@<%- orgName %>/single-spa-react-app": "//localhost:8500/ericgibby-single-spa-react-app.js",
+					"@<%- orgName %>/single-spa-react-app-plus": "//localhost:8501/ericgibby-single-spa-react-app-plus.js",
 					"shared-components": "//localhost:8502/shared-components.umd.development.js"
 				}
 			}
@@ -65,10 +67,11 @@
 		<script type="systemjs-importmap">
 			{
 				"imports": {
-					"@ericgibby/root-config": "/single-spa-demo/ericgibby-root-config.js",
-					"@ericgibby/single-spa-angular-app": "/single-spa-demo/single-spa-angular-app/main.js",
-					"@ericgibby/single-spa-react-app": "/single-spa-demo/ericgibby-single-spa-react-app.js",
-					"@ericgibby/single-spa-react-app-plus": "/single-spa-demo/ericgibby-single-spa-react-app-plus.js",
+					"@<%- orgName %>/root-config": "/single-spa-demo/ericgibby-root-config.js",
+					"@<%- orgName %>/app-header": "/single-spa-demo/ericgibby-app-header.js",
+					"@<%- orgName %>/single-spa-angular-app": "/single-spa-demo/single-spa-angular-app/main.js",
+					"@<%- orgName %>/single-spa-react-app": "/single-spa-demo/ericgibby-single-spa-react-app.js",
+					"@<%- orgName %>/single-spa-react-app-plus": "/single-spa-demo/ericgibby-single-spa-react-app-plus.js",
 					"shared-components": "/single-spa-demo/shared-components.umd.production.min.js"
 				}
 			}
@@ -95,18 +98,18 @@
 
 		<template id="single-spa-layout">
 			<single-spa-router base="/single-spa-demo">
-				<!-- <nav>
-        <application name="@<%- orgName %>/navbar"></application>
-      </nav> -->
-				<main>
+				<header>
+					<application name="@<%- orgName %>/app-header"></application>
+				</header>
+				<main class="container">
 					<route default>
-						<application name="@ericgibby/single-spa-react-app"></application>
+						<application name="@<%- orgName %>/single-spa-react-app"></application>
 					</route>
 					<route path="plus">
-						<application name="@ericgibby/single-spa-react-app-plus"></application>
+						<application name="@<%- orgName %>/single-spa-react-app-plus"></application>
 					</route>
 					<route path="ng">
-						<application name="@ericgibby/single-spa-angular-app"></application>
+						<application name="@<%- orgName %>/single-spa-angular-app"></application>
 					</route>
 				</main>
 			</single-spa-router>
@@ -114,7 +117,7 @@
 	</head>
 	<body>
 		<script>
-			System.import('@ericgibby/root-config');
+			System.import('@<%- orgName %>/root-config');
 		</script>
 		<import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 	</body>
