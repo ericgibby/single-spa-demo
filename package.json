@@ -8,6 +8,7 @@
 	"private": true,
 	"workspaces": [
 		"app-header",
+		"auth-app",
 		"single-spa-angular-app",
 		"single-spa-react-app",
 		"single-spa-react-app-plus",
@@ -25,24 +26,27 @@
 		"start:root": "yarn workspace single-spa-root start",
 		"start:angular-app": "yarn workspace single-spa-angular-app serve:single-spa:single-spa-angular-app",
 		"start:app-header": "yarn workspace app-header start",
+		"start:auth-app": "yarn workspace auth-app start",
 		"start:react-app": "yarn workspace single-spa-react-app start",
 		"start:react-app-plus": "yarn workspace single-spa-react-app-plus start",
 		"start:shared-components": "yarn workspace shared-components start",
-		"start": "concurrently yarn:start:angular-app yarn:start:app-header yarn:start:react-app yarn:start:react-app-plus yarn:start:root yarn:start:shared-components",
+		"start": "concurrently yarn:start:angular-app yarn:start:app-header yarn:start:auth-app yarn:start:react-app yarn:start:react-app-plus yarn:start:root yarn:start:shared-components",
 		"prestart": "yarn build:shared-components",
 		"build:root": "yarn workspace single-spa-root build",
 		"build:angular-app": "yarn workspace single-spa-angular-app build:single-spa:single-spa-angular-app",
 		"build:app-header": "yarn workspace app-header build",
+		"build:auth-app": "yarn workspace auth-app build",
 		"build:react-app": "yarn workspace single-spa-react-app build",
 		"build:react-app-plus": "yarn workspace single-spa-react-app-plus build",
 		"build:shared-components": "yarn workspace shared-components build",
 		"build": "yarn build:shared-components && concurrently yarn:build:angular-app yarn:build:app-header yarn:build:react-app yarn:build:react-app-plus yarn:build:root",
 		"test:angular-app": "yarn workspace single-spa-angular-app test --no-watch",
 		"test:app-header": "yarn workspace app-header test",
+		"test:auth-app": "yarn workspace auth-app test",
 		"test:react-app": "yarn workspace single-spa-react-app test",
 		"test:react-app-plus": "yarn workspace single-spa-react-app-plus test",
 		"test:shared-components": "yarn workspace shared-components test",
-		"test": "yarn test:angular-app && yarn test:app-header && yarn test:react-app && yarn test:react-app-plus && yarn test:shared-components"
+		"test": "yarn test:angular-app && yarn test:app-header && yarn test:auth-app && yarn test:react-app && yarn test:react-app-plus && yarn test:shared-components"
 	},
 	"husky": {
 		"hooks": {
