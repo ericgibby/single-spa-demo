@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { SingleSpaLink, useBase } from 'shared-components';
 
-const navItems: { key: string; to: string; text: string }[] = [
-	{ key: 'angular', to: '/ng', text: 'Angular' },
-	{ key: 'react', to: '/', text: 'React' },
-	{ key: 'react-plus', to: '/plus', text: 'React+' }
+const navItems: { key: string; to: string; text: string; isDefault?: boolean }[] = [
+	{ key: 'react', to: '/', text: 'React', isDefault: true },
+	{ key: 'react-plus', to: '/plus', text: 'React+' },
+	{ key: 'angular', to: '/ng', text: 'Angular' }
 ];
 
 type NavBarProps = {
@@ -42,22 +42,22 @@ export default function NavBar({ name }: NavBarProps) {
 						</li>
 					))}
 				</ul>
+				<ul className="navbar-nav">
+					<li className="nav-item">
+						<SingleSpaLink className="nav-link" to="/auth/signin">
+							Sign in
+						</SingleSpaLink>
+					</li>
+				</ul>
 			</div>
 		</nav>
 	);
 }
 
 function getActiveNavItem(location: Location, baseUrl = '') {
+	const path = location.pathname.replace(baseUrl, '');
 	const item = navItems
-		.filter(({ key }) => key !== 'react')
-		.reduce((current, { key, to }) => {
-			const path = location.pathname.replace(baseUrl, '');
-			const regex = new RegExp(`^${to}`);
-			const active = regex.test(path);
-			if (active) {
-				return key;
-			}
-			return current;
-		}, '');
+		.filter(({ isDefault }) => !isDefault)
+		.reduce((current, { key, to }) => (new RegExp(`^${to}`).test(path) ? key : current), '');
 	return item || 'react';
 }
