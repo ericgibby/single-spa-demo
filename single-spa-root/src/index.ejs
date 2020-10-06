@@ -56,6 +56,7 @@
 				"imports": {
 					"@<%- orgName %>/root-config": "//localhost:9000/ericgibby-root-config.js",
 					"@<%- orgName %>/app-header": "//localhost:8504/ericgibby-app-header.js",
+					"@<%- orgName %>/auth-app": "//localhost:8505/ericgibby-auth-app.js",
 					"@<%- orgName %>/single-spa-angular-app": "//localhost:8503/main.js",
 					"@<%- orgName %>/single-spa-react-app": "//localhost:8500/ericgibby-single-spa-react-app.js",
 					"@<%- orgName %>/single-spa-react-app-plus": "//localhost:8501/ericgibby-single-spa-react-app-plus.js",
@@ -69,6 +70,7 @@
 				"imports": {
 					"@<%- orgName %>/root-config": "/single-spa-demo/ericgibby-root-config.js",
 					"@<%- orgName %>/app-header": "/single-spa-demo/ericgibby-app-header.js",
+					"@<%- orgName %>/auth-app": "/single-spa-demo/ericgibby-auth-app.js",
 					"@<%- orgName %>/single-spa-angular-app": "/single-spa-demo/single-spa-angular-app/main.js",
 					"@<%- orgName %>/single-spa-react-app": "/single-spa-demo/ericgibby-single-spa-react-app.js",
 					"@<%- orgName %>/single-spa-react-app-plus": "/single-spa-demo/ericgibby-single-spa-react-app-plus.js",
@@ -110,6 +112,9 @@
 					</route>
 					<route path="ng">
 						<application name="@<%- orgName %>/single-spa-angular-app"></application>
+					</route>
+					<route path="auth">
+						<application name="@<%- orgName %>/auth-app"></application>
 					</route>
 				</main>
 			</single-spa-router>
