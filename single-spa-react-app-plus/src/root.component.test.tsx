@@ -12,7 +12,7 @@ jest.mock('react-router-dom', () => {
 
 describe('Root component', () => {
 	it('should be in the document', () => {
-		const { getAllByText } = render(<Root name="Testapp" />);
-		expect(getAllByText(/Testapp/i).length).toBeGreaterThan(1);
+		const { getByText } = render(<Root name="Testapp" />);
+		expect(getByText(/Testapp/i)).toBeInTheDocument();
 	});
 });

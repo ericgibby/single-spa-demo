@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"license": "MIT",
 	"private": true,
-	"main": "dist/index.js",
+	"main": "dist/shared-components.esm.js",
 	"typings": "dist/index.d.ts",
 	"files": [
 		"dist",

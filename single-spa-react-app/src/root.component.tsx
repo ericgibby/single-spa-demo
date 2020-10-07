@@ -14,17 +14,15 @@ export default function Root({ name }: RootProps) {
 	return (
 		<ErrorBoundary FallbackComponent={ErrorFallback}>
 			<header>
-				<h1>{name}</h1>
+				<h1>
+					React <small className="text-muted">{name}</small>
+				</h1>
 			</header>
 			<Suspense fallback={<div>Loading...</div>}>
 				<BrowserRouter basename="single-spa-demo">
 					<Switch>
-						<Route path="/one">
-							<One name={name} />
-						</Route>
-						<Route path="/two">
-							<Two name={name} />
-						</Route>
+						<Route path="/one" component={One} />
+						<Route path="/two" component={Two} />
 						<Redirect path="/" exact to="/one" />
 					</Switch>
 				</BrowserRouter>
