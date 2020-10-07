@@ -1,5 +1,9 @@
+import { Action } from '@reduxjs/toolkit';
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { SingleSpaLink, useBase } from 'shared-components';
+import { selectToken } from '../../redux/auth.selector';
+import UserInfo from '../UserInfo/UserInfo';
 
 const navItems: { key: string; to: string; text: string; isDefault?: boolean }[] = [
 	{ key: 'react', to: '/', text: 'React', isDefault: true },
@@ -9,11 +13,14 @@ const navItems: { key: string; to: string; text: string; isDefault?: boolean }[]
 
 type NavBarProps = {
 	name?: string;
+	clearTokenAction?: () => Action;
 };
 
-export default function NavBar({ name }: NavBarProps) {
+export default function NavBar({ clearTokenAction, name }: NavBarProps) {
 	const [activeNavItem, setActiveNavItem] = useState<string>();
 	const base = useBase();
+	const token = useSelector(selectToken);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		const routingEventHandler = () => {
@@ -26,6 +33,8 @@ export default function NavBar({ name }: NavBarProps) {
 			window.removeEventListener('popstate', routingEventHandler);
 		};
 	}, [base]);
+
+	const handleUserInfoClick = () => dispatch(clearTokenAction?.());
 
 	return (
 		<nav className="navbar navbar-expand navbar-dark bg-dark">
@@ -44,9 +53,12 @@ export default function NavBar({ name }: NavBarProps) {
 				</ul>
 				<ul className="navbar-nav">
 					<li className="nav-item">
-						<SingleSpaLink className="nav-link" to="/auth/signin">
-							Sign in
-						</SingleSpaLink>
+						{!token && (
+							<SingleSpaLink className="nav-link" to="/auth/signin">
+								Sign in
+							</SingleSpaLink>
+						)}
+						{!!token && <UserInfo onClick={handleUserInfoClick} />}
 					</li>
 				</ul>
 			</div>

@@ -1,0 +1,25 @@
+.UserInfo {
+	display: flex;
+	max-width: 200px;
+	min-width: 200px;
+	align-items: center;
+}
+
+.UserInfo .avatar-column {
+	flex: 0 1;
+}
+
+.UserInfo .avatar {
+	height: 50px;
+	width: 50px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 25px;
+	overflow: hidden;
+}
+
+.UserInfo .name-column {
+	flex: 1 0;
+	padding: 10px;
+}
