@@ -101,7 +101,7 @@
 		<template id="single-spa-layout">
 			<single-spa-router base="/single-spa-demo">
 				<header>
-					<application name="@<%- orgName %>/app-header"></application>
+					<application name="@<%- orgName %>/app-header" props="clearTokenAction,store"></application>
 				</header>
 				<main class="container">
 					<route default>
@@ -114,7 +114,7 @@
 						<application name="@<%- orgName %>/single-spa-angular-app"></application>
 					</route>
 					<route path="auth">
-						<application name="@<%- orgName %>/auth-app"></application>
+						<application name="@<%- orgName %>/auth-app" props="store,tokenReceivedAction"></application>
 					</route>
 				</main>
 			</single-spa-router>
