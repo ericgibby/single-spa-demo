@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { useQuery } from '../../hooks/useQuery';
-import { exchange, getReturnUrl, getState } from '../../services/oauth';
+import { clearReturnUrl, clearState, exchange, getReturnUrl, getState } from '../../services/oauth';
 import { getUrls } from '../../services/urls';
 
 type CallbackProps = {
@@ -30,6 +30,7 @@ export default function Callback({ onTokenReceived }: CallbackProps) {
 				window.dispatchEvent(new CustomEvent('auth:token', { detail: result.token }));
 				onTokenReceived?.(result.token);
 				const returnUrl = getReturnUrl() ?? '/';
+				clearReturnUrl();
 				history.push(returnUrl);
 			} catch (err) {
 				console.error(err);
@@ -37,6 +38,8 @@ export default function Callback({ onTokenReceived }: CallbackProps) {
 				if (/Timestamp not within acceptable range/.test(err?.message)) {
 					history.replace('/auth/signin');
 				}
+			} finally {
+				clearState();
 			}
 		})();
 	}, [clientId, history, query, oauthRedirectUri, onTokenReceived]);

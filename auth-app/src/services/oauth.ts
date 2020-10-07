@@ -28,12 +28,16 @@ export async function exchange({ code, state }: OAuthExchangeParams) {
 	return ky.get(`${oauthExchangeUri}/${code}`).json<{ error?: string; token?: string }>();
 }
 
+export function clearState() {
+	localStorage.removeItem('oauth:state');
+}
+
 export function getState() {
 	return JSON.parse(localStorage.getItem('oauth:state') || '{}') as { state?: string; ts?: number };
 }
 
 export function clearReturnUrl() {
-	localStorage.removeItem('auth:returnUrl');
+	localStorage.removeItem('oauth:returnUrl');
 }
 
 export function getReturnUrl() {
