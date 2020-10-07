@@ -38,7 +38,7 @@ export function clearReturnUrl() {
 
 export function getReturnUrl() {
 	const { ts = 0, url } = JSON.parse(localStorage.getItem('oauth:returnUrl') || '{}') as { ts?: number; url?: string };
-	return Date.now() - ts > 5 * 60 * 1000 ? url : undefined;
+	return Date.now() - ts < 5 * 60 * 1000 ? url : undefined;
 }
 
 export function setReturnUrl(referrer: string) {

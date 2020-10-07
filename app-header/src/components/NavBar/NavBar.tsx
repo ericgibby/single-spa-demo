@@ -18,6 +18,7 @@ type NavBarProps = {
 
 export default function NavBar({ clearTokenAction, name }: NavBarProps) {
 	const [activeNavItem, setActiveNavItem] = useState<string>();
+	const [returnUrl, setReturnUrl] = useState('/');
 	const base = useBase();
 	const token = useSelector(selectToken);
 	const dispatch = useDispatch();
@@ -25,6 +26,7 @@ export default function NavBar({ clearTokenAction, name }: NavBarProps) {
 	useEffect(() => {
 		const routingEventHandler = () => {
 			const item = getActiveNavItem(window.location, base);
+			setReturnUrl(window.location.href);
 			setActiveNavItem(item);
 		};
 		routingEventHandler();
@@ -54,7 +56,7 @@ export default function NavBar({ clearTokenAction, name }: NavBarProps) {
 				<ul className="navbar-nav">
 					<li className="nav-item">
 						{!token && (
-							<SingleSpaLink className="nav-link" to="/auth/signin">
+							<SingleSpaLink className="nav-link" to={`/auth/signin?returnUrl=${returnUrl}`}>
 								Sign in
 							</SingleSpaLink>
 						)}
